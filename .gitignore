@@ -64,5 +64,6 @@ gh-pages
 /public
 .DS_Store
 
-package-lock.json
+# 自定义忽略文件
+# package-lock.json // 不能忽略,部署到 github pages 时 npm install 需要,否则会报错
 .idea
