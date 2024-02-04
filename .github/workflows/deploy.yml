@@ -49,7 +49,7 @@ jobs:
   # Deployment job
   deploy:
     environment:
-      name: github-pages
+      name: amis-admin-pro
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
