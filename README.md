@@ -1,10 +1,18 @@
-# amis-admin-pro
+# AMIS Admin Pro
 
 基于 AMIS 官方示例改造的管理系统, AMIS 是一个低代码前端框架，它使用 JSON 配置来生成页面。
 
-## 本地运行这个项目
+## 演示地址
 
-1. `npm i` 安装依赖
-2. `npm run dev` 编译项目
+https://0xduer.github.io/amis-admin-pro
+
+## 快速开始
+
+```bash
+# 安装依赖
+npm i
+# 启动项目
+npm run dev
+```
 
 
