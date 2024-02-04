@@ -1,5 +1,5 @@
 #
-name: AMIS Admin Pro
+name: amis-admin-pro
 
 on:
   # using the `master` branch as the default branch.
@@ -49,7 +49,7 @@ jobs:
   # Deployment job
   deploy:
     environment:
-      name: v0.1.0
+      name: amis-admin-pro
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
