@@ -1,24 +1,12 @@
 {
   "name": "amis-admin-pro",
-  "version": "0.1.0",
+  "author": "0xduer",
   "description": "AMIS 低代码管理系统",
-  "main": "index.js",
   "scripts": {
     "dev": "amis dev",
     "build": "amis build",
     "format": "prettier --write \"src/**/**/*.{js,jsx,ts,tsx,vue,scss,json}\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/0xduer/amis-admin-pro.git"
-  },
-  "keywords": [
-    "amis",
-    "admin"
-  ],
-  "author": "0xduer",
-  "license": "ISC",
-  "homepage": "https://0xduer.github.io/0xduer/amis-admin-pro",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "amis": "6.0.0",
