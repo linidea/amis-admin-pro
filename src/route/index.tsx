@@ -10,10 +10,12 @@ import {IMainStore} from '../store/index';
 // import Preview from './Preview';
 // import Editor from './Editor';
 import '../renderer/MyRenderer';
+
 const Preview = React.lazy(() => import('./Preview'));
 const Editor = React.lazy(() => import('./Editor'));
+const Home = React.lazy(() => import('@/view/home'));
 
-export default observer(function ({store}: {store: IMainStore}) {
+export default observer(function({store}: {store: IMainStore}) {
   return (
     <Router>
       <div className="routes-wrapper">
@@ -23,6 +25,7 @@ export default observer(function ({store}: {store: IMainStore}) {
           fallback={<Spinner overlay className="m-t-lg" size="lg" />}
         >
           <Switch>
+            <Route path={'/'} component={Home} />
             <Redirect to={`/hello-world`} from={`/`} exact />
             <Route path="/edit/:id" component={Editor} />
             <Route component={Preview} />
