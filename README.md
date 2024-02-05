@@ -11,4 +11,12 @@ npm i # 安装依赖
 npm run dev # 启动项目
 ```
 
+## 注意事项
+
+- node: 18.x/16.x版本
+- react: 16.x 版本
+- antd: 4.x 版本([不兼容 V5](https://ant.design/docs/react/migration-v5-cn))
+- mobx: 4.x 版本([AMIS 官方解释](https://aisuda.bce.baidu.com/amis/zh-CN/docs/start/faq))
+
+
 
