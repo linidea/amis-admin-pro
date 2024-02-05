@@ -2,7 +2,10 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",
@@ -14,11 +17,24 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./node_modules/@types", "./typings"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
-  "include": ["**/*"],
+  "include": [
+    "**/*"
+  ],
   "exclude": [
     "node_modules"
   ],
-  "types": ["typePatches"]
+  "types": [
+    "typePatches"
+  ]
 }

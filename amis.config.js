@@ -14,7 +14,7 @@ module.exports = {
       // webpack的resolve配置
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.esm.js', '.umd.js', '.min.js', '.json'], // 用于配置webpack在尝试过程中用到的后缀列表
       alias: {
-        '@': resolve('src')
+        '@': resolve('./src')
         // $function: resolve('src/function'),
         // $utils: resolve('src/utils'),
       }
@@ -38,7 +38,7 @@ module.exports = {
     // 用于开启本地调试模式的相关配置信息
     NODE_ENV: 'development',
     ignoreNodeModules: false, // 打包时是否忽略 node_modules
-    port: 80,
+    port: 8000,
     autoOpenBrowser: true,
     assetsPublicPath: '/', // 设置静态资源的引用路径（根域名+路径）
     assetsSubDirectory: '',
