@@ -5,6 +5,9 @@ import {DashboardOutlined} from '@ant-design/icons';
 
 const {Header, Sider, Content} = Layout;
 
+// 路由
+const Workspace = React.lazy(() => import('@/view/dashboard/workspace'));
+
 // 菜单
 const items: any = [
   {
@@ -26,7 +29,7 @@ const App: React.FC = () => (
                 defaultOpenKeys={['dashboard']} defaultSelectedKeys={['workspace']} />
         </Sider>
         <Content className="content">
-          <div className="content-inner"></div>
+          <Workspace />
         </Content>
       </Layout>
     </Layout>
