@@ -29,10 +29,16 @@
     width: 200px;
     font-size: 18px;
     font-weight: 600;
+    flex-shrink: inherit;
     justify-content: center;
 }
 
 .navigate {
+    width: 100%
+}
+
+.account {
+    flex-shrink: inherit;
 }
 
 .account a {
