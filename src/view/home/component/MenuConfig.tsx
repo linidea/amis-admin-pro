@@ -1,7 +1,12 @@
 import React from 'react';
 import {DashboardOutlined, FormOutlined} from '@ant-design/icons';
 
-import AMISRenderer from '@/component/AMISRenderer';
+// 本地示例
+import Apply from '@/view/demo/Apply';
+import Approval from '@/view/demo/Approval';
+import Detail from '@/view/demo/Detail';
+
+// 工作台
 import Document from '@/view/workspace/document';
 
 const MenuConfig = [
@@ -9,7 +14,21 @@ const MenuConfig = [
     label: '本地示例',
     key: 'demo',
     icon: <FormOutlined />,
-    component: <AMISRenderer />
+    children: [
+      {
+        label: '申请页',
+        key: 'apply',
+        component: <Apply />
+      }, {
+        label: '审批页',
+        key: 'approval',
+        component: <Approval />
+      }, {
+        label: '详情页',
+        key: 'detail',
+        component: <Detail />
+      }
+    ]
   }, {
     label: '工作台',
     key: 'workspace',
@@ -23,9 +42,5 @@ const MenuConfig = [
     ]
   }
 ];
-
-function getCurrentMenu() {
-  
-}
 
 export {MenuConfig};
