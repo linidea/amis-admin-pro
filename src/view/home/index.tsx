@@ -42,8 +42,8 @@ export default function Home() {
         <div className="logo">AMIS Admin Pro</div>
         <div className="navigate">
           <div>
-            <Button type="link" style={{fontWeight: '600'}} href={`${window.location.origin}/#/edit/0`}
-                    target="_blank">编辑器</Button>
+            <Button type="link" style={{fontWeight: '600'}} target="_blank"
+                    href={`${window.location.origin}${window.location.pathname}#/edit/0`}>编辑器</Button>
           </div>
           <div className="account"><a href="https://github.com/0xduer" target="_blank"><GithubOutlined
             style={{fontSize: '16px', color: '#000', marginRight: '8px'}} />Lin Gui</a>
