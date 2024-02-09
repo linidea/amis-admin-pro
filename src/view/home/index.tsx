@@ -1,15 +1,14 @@
 import './style/index.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Layout, Menu} from 'antd';
 import {CopyrightOutlined, GithubOutlined} from '@ant-design/icons';
 
 // 菜单配置项
 import {MenuConfig} from '@/view/home/component/MenuConfig';
 
-console.log(MenuConfig);
-
 const {Header, Sider, Content} = Layout;
 
+// 设置当前组件
 function setCurComp(key: string, list: any, call: Function) {
   for (let i = 0; i < list.length; i++) {
     if (key === list[i].key) {
@@ -25,9 +24,17 @@ export default function Home() {
 
   const [curComp, setComp] = useState(<></>);
 
+  useEffect(() => {
+    // 默认选中申请页
+    handleMenuClick({key: 'apply'});
+  }, []); // 空数组表示只执行一次
+
+
+  // 点击菜单
   function handleMenuClick(item: any) {
     setCurComp(item.key, MenuConfig, setComp);
   }
+
 
   return (
     <Layout className="container">
@@ -44,7 +51,8 @@ export default function Home() {
       </Header>
       <Layout className="main">
         <Sider className="sider" theme="light">
-          <Menu mode="inline" items={MenuConfig} defaultSelectedKeys={['demo']} onClick={handleMenuClick} />
+          <Menu mode="inline" items={MenuConfig} defaultOpenKeys={['demo']} defaultSelectedKeys={['apply']}
+                onClick={handleMenuClick} />
         </Sider>
         <Content className="content">
           {curComp}
