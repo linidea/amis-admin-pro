@@ -1,10 +1,10 @@
 import React from 'react';
-import {ToastComponent, AlertComponent, Spinner} from 'amis';
+import {AlertComponent, Spinner, ToastComponent} from 'amis';
 /**
  * BrowserRouter: history 路由模式
  * HashRouter: hash 路由模式
  */
-import {Route, Switch, Redirect, HashRouter as Router} from 'react-router-dom';
+import {HashRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import {observer} from 'mobx-react';
 import {IMainStore} from '../store/index';
 // import Preview from './Preview';
@@ -25,7 +25,8 @@ export default observer(function({store}: {store: IMainStore}) {
           fallback={<Spinner overlay className="m-t-lg" size="lg" />}
         >
           <Switch>
-            <Route path={'/'} component={Home} />
+            <Route path={'/'} component={Home} exact />
+            <Route path="/editor/1" component={Editor} exact />
             <Redirect to={`/hello-world`} from={`/`} exact />
             <Route path="/edit/:id" component={Editor} />
             <Route component={Preview} />
