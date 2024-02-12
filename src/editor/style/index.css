@@ -1,0 +1,27 @@
+.editor {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.header {
+    height: 50px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.header-center {
+    width: 50%
+}
