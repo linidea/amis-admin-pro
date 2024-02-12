@@ -12,7 +12,8 @@ import {IMainStore} from '../store/index';
 import '../renderer/MyRenderer';
 
 const Preview = React.lazy(() => import('./Preview'));
-const Editor = React.lazy(() => import('./Editor'));
+// const Editor = React.lazy(() => import('./Editor'));
+const Editor = React.lazy(() => import('@/editor/index'));
 const Home = React.lazy(() => import('@/view/home'));
 
 export default observer(function({store}: {store: IMainStore}) {
@@ -26,7 +27,7 @@ export default observer(function({store}: {store: IMainStore}) {
         >
           <Switch>
             <Route path={'/'} component={Home} exact />
-            <Route path="/editor/1" component={Editor} exact />
+            <Route path="/editor" component={Editor} exact />
             <Redirect to={`/hello-world`} from={`/`} exact />
             <Route path="/edit/:id" component={Editor} />
             <Route component={Preview} />
