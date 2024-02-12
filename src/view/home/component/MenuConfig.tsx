@@ -2,6 +2,7 @@ import React from 'react';
 import {DashboardOutlined, FormOutlined} from '@ant-design/icons';
 
 // 本地示例
+import Test from '@/view/demo/Test';
 import Apply from '@/view/demo/Apply';
 import Approval from '@/view/demo/Approval';
 import Detail from '@/view/demo/Detail';
@@ -16,6 +17,10 @@ const MenuConfig = [
     icon: <FormOutlined />,
     children: [
       {
+        label: '测试页',
+        key: 'test',
+        component: <Test />
+      }, {
         label: '申请页',
         key: 'apply',
         component: <Apply />

@@ -13,7 +13,7 @@ function setCurComp(key: string, list: any, call: Function) {
   for (let i = 0; i < list.length; i++) {
     if (key === list[i].key) {
       call(list[i].component);
-      break;
+      return;
     }
     Array.isArray(list[i].children) && setCurComp(key, list[i].children, call);
   }
@@ -26,7 +26,7 @@ export default function Home() {
 
   useEffect(() => {
     // 默认选中申请页
-    handleMenuClick({key: 'apply'});
+    handleMenuClick({key: 'test'});
   }, []); // 空数组表示只执行一次
 
 
@@ -52,7 +52,7 @@ export default function Home() {
       </Header>
       <Layout className="main">
         <Sider className="sider" theme="light">
-          <Menu mode="inline" items={MenuConfig} defaultOpenKeys={['demo']} defaultSelectedKeys={['apply']}
+          <Menu mode="inline" items={MenuConfig} defaultOpenKeys={['demo']} defaultSelectedKeys={['test']}
                 onClick={handleMenuClick} />
         </Sider>
         <Content className="content">
