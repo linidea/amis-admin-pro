@@ -4,6 +4,7 @@ import {Editor} from 'amis-editor';
 import {Button, Dropdown, message, Spin} from 'antd';
 import {DesktopOutlined, FormOutlined, SaveOutlined} from '@ant-design/icons';
 
+import {loading} from '@/util/loading';
 import {DROPDOWN_BUTTON_PROPS} from './lib/config';
 
 
@@ -32,10 +33,9 @@ function handleSave() {
 }
 
 export default function App() {
+  loading();
   const [previewed, setPreviewed] = useState(false);
-
   return <div className="editor">
-    <Spin />
     <div className="header">
       <div className="header-left"></div>
       <div className="header-center"></div>

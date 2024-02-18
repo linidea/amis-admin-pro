@@ -1,5 +1,20 @@
+/*全局 loading*/
+#lg-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-size: 20px;
+}
+
 /*模块卡片*/
-.module-card {
+.lg-moduleCard {
     overflow: hidden;
     background: #ffffff;
     border-radius: 8px;

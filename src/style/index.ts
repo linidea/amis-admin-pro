@@ -5,6 +5,7 @@ import 'amis/lib/helper.css';
 import 'amis/sdk/iconfont.css';
 import 'amis-editor-core/lib/style.css';
 import './style.scss';
+import './common.css';
 import {setDefaultTheme} from 'amis';
 import {setThemeConfig} from 'amis-editor-core';
 import themeConfig from 'amis-theme-editor-helper/lib/systemTheme/cxd';
