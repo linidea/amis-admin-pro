@@ -9,7 +9,7 @@ import Apply from '@/view/oa/Apply';
 import Approval from '@/view/oa/Approval';
 import Detail from '@/view/oa/Detail';
 
-const MenuConfig = [
+const MENU_PROPS = [
   {
     label: '本地示例',
     key: 'demo',
@@ -44,4 +44,4 @@ const MenuConfig = [
   }
 ];
 
-export {MenuConfig};
+export {MENU_PROPS};
