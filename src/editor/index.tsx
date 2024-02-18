@@ -1,8 +1,11 @@
 import './style/index.css';
 import React, {useState} from 'react';
 import {Editor} from 'amis-editor';
-import {Button, message} from 'antd';
-import {SaveOutlined} from '@ant-design/icons';
+import {Button, Dropdown, message, Spin} from 'antd';
+import {DesktopOutlined, FormOutlined, SaveOutlined} from '@ant-design/icons';
+
+import {DROPDOWN_BUTTON_PROPS} from './lib/config';
+
 
 let finalSchema: any = null;
 let localSchema: any = loadLocalSchema();
@@ -16,15 +19,10 @@ function loadLocalSchema() {
   return {'type': 'page', 'body': '初始页面'};
 }
 
-// 修改
-function onChange(value: any) {
-  console.log(value);
-  finalSchema = value;
-}
 
-// 预览
-function onPreview(callback: any) {
-  callback(true);
+// 修改
+function handleChange(value: any) {
+  finalSchema = value;
 }
 
 // 保存
@@ -34,23 +32,39 @@ function handleSave() {
 }
 
 export default function App() {
-  const [preview, setPreview] = useState(false);
+  const [previewed, setPreviewed] = useState(false);
 
   return <div className="editor">
+    <Spin />
     <div className="header">
       <div className="header-left"></div>
       <div className="header-center"></div>
       <div className="header-right">
-        <Button icon={<SaveOutlined />} onClick={handleSave}>保 存</Button>
+        <div className="btn-group">
+          <Button
+            icon={previewed ? <FormOutlined /> : <DesktopOutlined />}
+            style={{marginRight: '10px', color: '#fff', background: previewed ? '#1890ff' : '#52c41a'}}
+            onClick={() => setPreviewed(!previewed)}>
+            {previewed ? '编 辑' : '预 览'}
+          </Button>
+          <Dropdown.Button menu={DROPDOWN_BUTTON_PROPS}
+                           buttonsRender={([leftButton, rightButton]) => {
+                             return [
+                               <Button icon={<SaveOutlined />} onClick={handleSave}>保 存</Button>,
+                               rightButton
+                             ];
+                           }}
+          ></Dropdown.Button>
+        </div>
       </div>
     </div>
     <div className="container">
       <Editor
         theme={'cxd'}
         className="is-fixed"
-        preview={preview}
+        preview={previewed}
         value={localSchema}
-        onChange={onChange}
+        onChange={handleChange}
       />
     </div>
   </div>;

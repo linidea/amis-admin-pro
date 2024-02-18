@@ -25,3 +25,7 @@
 .header-center {
     width: 50%
 }
+
+.btn-group {
+    display: flex;
+}
