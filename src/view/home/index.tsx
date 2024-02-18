@@ -1,10 +1,13 @@
 import './style/index.css';
 import React, {useEffect, useState} from 'react';
-import {Button, Layout, Menu} from 'antd';
-import {CopyrightOutlined, GithubOutlined} from '@ant-design/icons';
+import {Layout, Menu} from 'antd';
+import {CopyrightOutlined} from '@ant-design/icons';
+
+// 组件
+import Navigate from './component/Navigate';
 
 // 菜单配置项
-import {MenuConfig} from '@/view/home/component/MenuConfig';
+import {MENU_PROPS} from '@/view/home/lib/config';
 
 const {Header, Sider, Content} = Layout;
 
@@ -32,7 +35,7 @@ export default function Home() {
 
   // 点击菜单
   function handleMenuClick(item: any) {
-    setCurComp(item.key, MenuConfig, setComp);
+    setCurComp(item.key, MENU_PROPS, setComp);
   }
 
 
@@ -40,19 +43,11 @@ export default function Home() {
     <Layout className="container">
       <Header className="header">
         <div className="logo">AMIS Admin Pro</div>
-        <div className="navigate">
-          <div>
-            <Button type="link" style={{fontWeight: '600'}} target="_blank"
-                    href={`${window.location.origin}${window.location.pathname}#/editor`}>编辑器</Button>
-          </div>
-          <div className="account"><a href="https://github.com/0xduer" target="_blank"><GithubOutlined
-            style={{fontSize: '16px', color: '#000', marginRight: '8px'}} />Lin Gui</a>
-          </div>
-        </div>
+        <Navigate />
       </Header>
       <Layout className="main">
         <Sider className="sider" theme="light">
-          <Menu mode="inline" items={MenuConfig} defaultOpenKeys={['demo']} defaultSelectedKeys={['test']}
+          <Menu mode="inline" items={MENU_PROPS} defaultOpenKeys={['demo']} defaultSelectedKeys={['test']}
                 onClick={handleMenuClick} />
         </Sider>
         <Content className="content">
