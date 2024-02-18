@@ -1,5 +1,5 @@
 import React from 'react';
-import {DashboardOutlined, FormOutlined, NodeIndexOutlined} from '@ant-design/icons';
+import {FormOutlined, NodeIndexOutlined} from '@ant-design/icons';
 
 // 本地示例
 import Test from '@/view/demo/Test';
@@ -8,9 +8,6 @@ import Test from '@/view/demo/Test';
 import Apply from '@/view/oa/Apply';
 import Approval from '@/view/oa/Approval';
 import Detail from '@/view/oa/Detail';
-
-// 工作台
-import Document from '@/view/workspace/document';
 
 const MenuConfig = [
   {
@@ -26,7 +23,7 @@ const MenuConfig = [
     ]
   },
   {
-    label: 'oa 流程',
+    label: 'OA 流程',
     key: 'oa',
     icon: <NodeIndexOutlined />,
     children: [
@@ -42,17 +39,6 @@ const MenuConfig = [
         label: '详情页',
         key: 'detail',
         component: <Detail />
-      }
-    ]
-  }, {
-    label: '工作台',
-    key: 'workspace',
-    icon: <DashboardOutlined />,
-    children: [
-      {
-        label: '文档',
-        key: 'document',
-        component: <Document />
       }
     ]
   }
