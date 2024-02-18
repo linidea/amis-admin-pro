@@ -33,8 +33,8 @@ function handleSave() {
 }
 
 export default function App() {
-  loading();
   const [previewed, setPreviewed] = useState(false);
+
   return <div className="editor">
     <div className="header">
       <div className="header-left"></div>
@@ -44,7 +44,10 @@ export default function App() {
           <Button
             icon={previewed ? <FormOutlined /> : <DesktopOutlined />}
             style={{marginRight: '10px', color: '#fff', background: previewed ? '#1890ff' : '#52c41a'}}
-            onClick={() => setPreviewed(!previewed)}>
+            onClick={async () => {
+              await loading(1000);
+              setPreviewed(!previewed);
+            }}>
             {previewed ? '编 辑' : '预 览'}
           </Button>
           <Dropdown.Button menu={DROPDOWN_BUTTON_PROPS}
