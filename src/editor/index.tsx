@@ -38,7 +38,8 @@ function handleMenuClick(item: any, callback: any) {
         okText: '确认',
         cancelText: '取消',
         onOk: () => {
-          callback({type: 'page', body: '初始页面'});
+          finalSchema = {type: 'page', body: '初始页面'};
+          callback(finalSchema);
           localStorage.removeItem('localSchema');
           loading(500).then(() => {
             message.success('清空成功').then();
