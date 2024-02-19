@@ -6,26 +6,34 @@ import {CoffeeOutlined, GithubOutlined} from '@ant-design/icons';
 
 const items: MenuProps['items'] = [
   {
-    key: 'amis',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index">
-        百度 AMIS
-      </a>
-    )
-  },
-  {
-    key: 'example',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://aisuda.bce.baidu.com/amis/examples/index">
-        AMIS 示例
-      </a>
-    )
-  },
-  {
     key: 'antd',
     label: (
       <a target="_blank" rel="noopener noreferrer" href="https://4x-ant-design.antgroup.com/components/overview-cn/">
         Ant Design V4
+      </a>
+    )
+  },
+  {
+    key: 'amis',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index">
+        百度 AMIS 文档
+      </a>
+    )
+  },
+  {
+    key: 'editor',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://aisuda.github.io/amis-editor-demo/#/hello-world">
+        AMIS Editor 示例
+      </a>
+    )
+  },
+  {
+    key: 'admin',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="https://aisuda.bce.baidu.com/amis/examples/index">
+        AMIS Admin 示例
       </a>
     )
   }
