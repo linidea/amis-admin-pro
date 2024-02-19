@@ -1,12 +1,14 @@
 import React from 'react';
 import {Provider} from 'mobx-react';
-import {toast, alert, confirm} from 'amis';
+import {alert, confirm, toast} from 'amis';
 import axios from 'axios';
 import {MainStore} from './store/index';
 import RootRoute from './route/index';
 import copy from 'copy-to-clipboard';
+import {ConfigProvider} from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
-export default function (): JSX.Element {
+export default function(): JSX.Element {
   const store = ((window as any).store = MainStore.create(
     {},
     {
@@ -47,8 +49,8 @@ export default function (): JSX.Element {
       copy: (contents: string, options: any = {}) => {
         const ret = copy(contents, options);
         ret &&
-          (!options || options.shutup !== true) &&
-          toast.info('内容已拷贝到剪切板');
+        (!options || options.shutup !== true) &&
+        toast.info('内容已拷贝到剪切板');
         return ret;
       }
     }
@@ -56,7 +58,9 @@ export default function (): JSX.Element {
 
   return (
     <Provider store={store}>
-      <RootRoute store={store} />
+      <ConfigProvider locale={zhCN}>
+        <RootRoute store={store} />
+      </ConfigProvider>
     </Provider>
   );
 }
