@@ -2,11 +2,6 @@ import React from 'react';
 import type {MenuProps} from 'antd';
 import {ApiOutlined, PartitionOutlined, SendOutlined, DeleteOutlined, DownloadOutlined} from '@ant-design/icons';
 
-const defaultSchema = {
-  type: 'page',
-  body: '初始页面'
-};
-
 const DROPDOWN_BUTTON_1: MenuProps['items'] = [
   {
     key: 'import',
@@ -21,4 +16,4 @@ const DROPDOWN_BUTTON_1: MenuProps['items'] = [
   }
 ];
 
-export {defaultSchema, DROPDOWN_BUTTON_1};
+export {DROPDOWN_BUTTON_1};

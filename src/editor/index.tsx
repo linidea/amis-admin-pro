@@ -5,7 +5,7 @@ import {Button, Dropdown, message, Modal} from 'antd';
 import {DesktopOutlined, FormOutlined, SaveOutlined} from '@ant-design/icons';
 
 import {loading} from '@/util/loading';
-import {defaultSchema, DROPDOWN_BUTTON_1} from './lib/config';
+import {DROPDOWN_BUTTON_1} from './lib/config';
 
 
 let finalSchema: any = null;
@@ -13,22 +13,22 @@ let finalSchema: any = null;
 // 加载本地示例
 function getLocalSchema() {
   let localSchema = localStorage.getItem('localSchema');
-  return localSchema ? JSON.parse(localSchema) : defaultSchema;
+  return localSchema ? JSON.parse(localSchema) : {type: 'page', body: '初始页面'};
 }
 
 
-// 修改
+// 修改页面
 function handleChange(value: any) {
   finalSchema = value;
 }
 
-// 保存
+// 保存页面
 function handleSave() {
   message.success('保存成功').then();
   localStorage.setItem('localSchema', JSON.stringify(finalSchema));
 }
 
-// 菜单点击
+// 按钮下拉菜单点击
 function handleMenuClick(item: any, callback: any) {
   // 清空
   if (item.key === 'delete') {
@@ -38,9 +38,11 @@ function handleMenuClick(item: any, callback: any) {
         okText: '确认',
         cancelText: '取消',
         onOk: () => {
-          callback(defaultSchema);
+          callback({type: 'page', body: '初始页面'});
           localStorage.removeItem('localSchema');
-          window.location.reload();
+          loading(500).then(() => {
+            message.success('清空成功').then();
+          });
         }
       }
     );
@@ -61,7 +63,7 @@ export default function App() {
             icon={previewed ? <FormOutlined /> : <DesktopOutlined />}
             style={{marginRight: '10px', color: '#fff', background: '#52c41a'}}
             onClick={async () => {
-              await loading(1000);
+              await loading(500);
               setPreviewed(!previewed);
             }}>
             {previewed ? '编 辑' : '预 览'}
