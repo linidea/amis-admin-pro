@@ -1,29 +1,24 @@
 import React from 'react';
-import {ApiOutlined, PartitionOutlined, SendOutlined} from '@ant-design/icons';
+import type {MenuProps} from 'antd';
+import {ApiOutlined, PartitionOutlined, SendOutlined, DeleteOutlined, DownloadOutlined} from '@ant-design/icons';
 
-const DROPDOWN_BUTTON = [
+const defaultSchema = {
+  type: 'page',
+  body: '初始页面'
+};
+
+const DROPDOWN_BUTTON_1: MenuProps['items'] = [
   {
-    key: 'config',
-    icon: <ApiOutlined />,
-    label: '配 置'
+    key: 'import',
+    icon: <DownloadOutlined />,
+    label: '导 入'
   },
   {
-    key: 'bind',
-    icon: <PartitionOutlined />,
-    label: '绑 定'
-  },
-  {
-    key: 'publish',
-    icon: <SendOutlined />,
-    label: '发 布'
+    key: 'delete',
+    icon: <DeleteOutlined />,
+    label: '清 空',
+    danger: true
   }
 ];
 
-const DROPDOWN_BUTTON_PROPS = {
-  items: DROPDOWN_BUTTON,
-  onClick: (item: any) => {
-    console.log(item);
-  }
-};
-
-export {DROPDOWN_BUTTON_PROPS};
+export {defaultSchema, DROPDOWN_BUTTON_1};
