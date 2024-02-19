@@ -4,6 +4,7 @@ import {Editor} from 'amis-editor';
 import {Button, Dropdown, message, Modal} from 'antd';
 import {DesktopOutlined, FormOutlined, SaveOutlined} from '@ant-design/icons';
 
+import ImportSchema from './component/ImportSchema';
 import {loading} from '@/util/loading';
 import {DROPDOWN_BUTTON_1} from './lib/config';
 
@@ -30,16 +31,20 @@ function handleSave() {
 
 // 按钮下拉菜单点击
 function handleMenuClick(item: any, callback: any) {
+  // 导入
+  if (item.key === 'import') {
+    let {modalOpened, setModalOpened} = callback;
+    setModalOpened(++modalOpened);
+  }
   // 清空
   if (item.key === 'delete') {
+    let {setSchema} = callback;
     Modal.confirm({
         title: '清空页面',
         content: '是否确认清空当前页面？',
-        okText: '确认',
-        cancelText: '取消',
         onOk: () => {
           finalSchema = {type: 'page', body: '初始页面'};
-          callback(finalSchema);
+          setSchema(finalSchema);
           localStorage.removeItem('localSchema');
           loading(500).then(() => {
             message.success('清空成功').then();
@@ -53,8 +58,10 @@ function handleMenuClick(item: any, callback: any) {
 export default function App() {
   const [schema, setSchema] = useState(getLocalSchema);
   const [previewed, setPreviewed] = useState(false);
+  const [modalOpened, setModalOpened] = useState(0);
 
   return <div className="editor">
+    <ImportSchema isModalOpen={modalOpened} />
     <div className="header">
       <div className="header-left"></div>
       <div className="header-center"></div>
@@ -73,7 +80,7 @@ export default function App() {
             type="primary"
             menu={{
               items: DROPDOWN_BUTTON_1, onClick: (item) => {
-                return handleMenuClick(item, setSchema);
+                return handleMenuClick(item, {setSchema, modalOpened, setModalOpened});
               }
             }}
             onClick={handleSave}
